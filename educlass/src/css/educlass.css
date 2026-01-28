@@ -1,0 +1,167 @@
+/* =========================
+   GLOBAL RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", system-ui, "Segoe UI", sans-serif;
+  background-color: #ffffff;
+  color: #3c4043;
+}
+
+.educlass-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: #ffffff;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  padding-left: 24px;
+  border-bottom: 1px solid #dadce0;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+}
+
+.left-part {
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.right-part {
+  width: 40vw;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.logo img {
+  margin-top: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile p {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(222, 0, 0, 0.801);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.main-container {
+  display: flex;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #dadce0;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+  width: 220px;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-icon {
+  padding: 15px 24px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #3c4043;
+  cursor: pointer;
+}
+
+.sidebar-icon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main {
+  flex: 1;
+  padding: 24px;
+  background-color: #fafafa;
+}
+
+/* =========================
+   CARD
+========================= */
+.card-container {
+  margin-top: 10px;
+  border: 1px solid #dadce0;
+  width: 280px;
+  height: 260px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.card-container:hover {
+  transform: scale(1.02);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0;
+  padding: 10px;
+  height: 100px;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+
+.card-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+.icon {
+  cursor: pointer;
+}
