@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./css/settingDropdown.css";
-import Class from "./Class";
 
-const SettingDropdown = () => {
+const SettingDropdown = ({ onToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isTurnedOn, setIsTurnedOn] = useState(true);
 
@@ -11,13 +10,13 @@ const SettingDropdown = () => {
   const handleTurnOn = () => {
     setIsTurnedOn(true);
     setIsOpen(false);
-    let found = true;
-    <Class prop={found} />;
+    if (onToggle) onToggle(true); // notify parent if needed
   };
 
   const handleTurnOff = () => {
     setIsTurnedOn(false);
     setIsOpen(false);
+    if (onToggle) onToggle(false); // notify parent if needed
   };
 
   return (

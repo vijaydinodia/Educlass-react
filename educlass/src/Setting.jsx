@@ -1,39 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/setting.css";
 
 const Settings = () => {
-  // State to track if class code is on or off
-  const [classCodeOn, setClassCodeOn] = useState(true);
+  const [isClassCodeVisible, setIsClassCodeVisible] = useState(true);
 
-  // Handler for dropdown change
-  const handleChange = (event) => {
-    if (event.target.value === "on") {
-      setClassCodeOn(true);
-    } else {
-      setClassCodeOn(false);
+  const classCode = "u3enjwgk";
+  const inviteLink =
+    "https://classroom.google.com/c/ODI0MjMxOTU2MDE0?cjc=u3enjwgk";
+
+  // Load the user's preference from localStorage on mount
+  useEffect(() => {
+    const storedValue = localStorage.getItem("classCodeOn");
+    if (storedValue !== null) {
+      setIsClassCodeVisible(storedValue === "true");
     }
+  }, []);
+
+  // Toggle class code visibility and save to localStorage
+  const handleToggle = (e) => {
+    const showCode = e.target.value === "on";
+    setIsClassCodeVisible(showCode);
+    localStorage.setItem("classCodeOn", showCode);
   };
 
   return (
     <div className="settings-page">
       <div className="settings-card">
-        <h1>General</h1>
+        <h1>General Settings</h1>
 
         <section>
-          <h2>Invitation codes</h2>
+          <h2>Invitation Codes</h2>
 
           <div className="row">
             <div>
               <strong>Manage invitation codes</strong>
               <p className="muted">
-                Settings apply to both invitation links and class codes
+                These settings apply to both invitation links and class codes.
               </p>
             </div>
 
             <div className="status">
               <select
-                value={classCodeOn ? "on" : "off"}
-                onChange={handleChange}
+                value={isClassCodeVisible ? "on" : "off"}
+                onChange={handleToggle}
               >
                 <option value="on">Turn On</option>
                 <option value="off">Turn Off</option>
@@ -42,55 +51,15 @@ const Settings = () => {
           </div>
 
           <div className="row">
-            <span className="label">Invitation link</span>
+            <span className="label">Invitation Link</span>
+            <span className="value">{inviteLink}</span>
+          </div>
+
+          <div className="row">
+            <span className="label">Class Code</span>
             <span className="value">
-              https://classroom.google.com/c/ODI0MjMxOTU2MDE0?cjc=u3enjwgk
+              {isClassCodeVisible ? classCode : "******"}
             </span>
-          </div>
-
-          <div className="row">
-            <span className="label">Class code</span>
-            <span className="value">{classCodeOn ? "u3enjwgk" : "******"}</span>
-          </div>
-
-          <div className="row">
-            <span className="label">Class view</span>
-            <a href="#" className="link">
-              Display class code
-            </a>
-          </div>
-        </section>
-
-        <hr />
-
-        <section>
-          <h2>Stream and classwork</h2>
-
-          <div className="row">
-            <span className="label">Stream</span>
-            <div className="dropdown">
-              Students can post and comment
-              <i className="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-
-          <div className="row">
-            <span className="label">Classwork on the stream</span>
-            <div className="dropdown">
-              Show condensed notifications
-              <i className="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-
-          <div className="row">
-            <div>
-              <span className="label">Show deleted items</span>
-              <p className="muted">Only teachers can view deleted items.</p>
-            </div>
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider"></span>
-            </label>
           </div>
         </section>
       </div>

@@ -4,8 +4,10 @@ import "./css/ClassMenu.css";
 const ClassMenu = ({ onTurnOff }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  // Toggle the menu open/closed
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
+  // Handle clicking "Turn off"
   const handleTurnOff = () => {
     onTurnOff();
     setIsOpen(false);
@@ -13,10 +15,11 @@ const ClassMenu = ({ onTurnOff }) => {
 
   return (
     <div className="menu-container">
+      {/* Menu trigger button */}
       <button
         className="menu-trigger"
         onClick={toggleMenu}
-        aria-label="Open menu"
+        aria-label="Open class menu"
       >
         <i
           className="fa-solid fa-ellipsis-vertical"
@@ -24,6 +27,7 @@ const ClassMenu = ({ onTurnOff }) => {
         ></i>
       </button>
 
+      {/* Dropdown menu */}
       {isOpen && (
         <div className="menu-dropdown">
           <button className="menu-item" onClick={handleTurnOff}>

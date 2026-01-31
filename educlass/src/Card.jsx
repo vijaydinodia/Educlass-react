@@ -1,21 +1,23 @@
 import React from "react";
 import "./css/educlass.css";
-import card_bg from "./assets/card-bg.jpg";
+import cardBg from "./assets/card-bg.jpg";
 
-const Card = ({ prop }) => {
-  console.log(prop);
+const Card = ({ onClick, title = "React Q" }) => {
   return (
-    <div onClick={prop}>
+    <div className="card-wrapper" onClick={onClick}>
       <div className="card card-link">
+    
         <div
           className="card-header"
-          style={{ backgroundImage: `url(${card_bg})` }}
+          style={{ backgroundImage: `url(${cardBg})`  }}
         >
-          <h2>React Q</h2>
+          <h2>{title}</h2>
         </div>
 
+       
         <div className="card-content"></div>
 
+        {/* Card footer with icons */}
         <div className="card-footer">
           <span className="icon">
             <i className="fa-solid fa-address-card"></i>

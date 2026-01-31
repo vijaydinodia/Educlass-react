@@ -1,10 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./css/educlass.css";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="sidebar">
-      <span className="sidebar-icon">
+      <span
+        className="sidebar-icon"
+        onClick={() => navigate("/")} // navigate to default page
+        style={{ cursor: "pointer" }}
+      >
         <i className="fa-solid fa-house"></i> Home
       </span>
 
