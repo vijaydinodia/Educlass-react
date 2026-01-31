@@ -9,7 +9,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <span
         className="sidebar-icon"
-        onClick={() => navigate("/")} // navigate to default page
+        onClick={() => navigate("/")} // navigate to default page Home
         style={{ cursor: "pointer" }}
       >
         <i className="fa-solid fa-house"></i> Home
